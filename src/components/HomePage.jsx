@@ -1,20 +1,33 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { FolderKanban, Users, BookOpen, DollarSign, TrendingUp, AlertCircle, FileText, ChevronDown, FileCheck, ChevronLeft, ChevronRight } from 'lucide-react';
-import { mockProjects } from '../data/mockData';
-import { useState, useEffect } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import {
+  FolderKanban,
+  Users,
+  BookOpen,
+  DollarSign,
+  TrendingUp,
+  AlertCircle,
+  FileText,
+  ChevronDown,
+  FileCheck,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { mockProjects } from "../data/mockData";
+import { useState, useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
-import { Button } from './ui/button';
-import carouselImage1 from '../assets/885b4e2a5e1f2c27e35b03c84506504008f8bd11.png';
-import carouselImage2 from '../assets/b15c951145d665c2df19b9b8a47436217290641c.png';
-import carouselImage3 from '../assets/image.png';
+} from "./ui/dropdown-menu";
+import { Button } from "./ui/button";
+
+import carouselImage1 from "../assets/885b4e2a5e1f2c27e35b03c84506504008f8bd11.png";
+import carouselImage2 from "../assets/b15c951145d665c2df19b9b8a47436217290641c.png";
+import carouselImage3 from "../assets/image.png";
 
 export function HomePage({ onNavigate }) {
-  const [selectedNewsletters, setSelectedNewsletters] = useState(['March 2025', 'April 2025']);
+  const [selectedNewsletters, setSelectedNewsletters] = useState(["March 2025", "April 2025"]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const carouselImages = [carouselImage1, carouselImage2, carouselImage3];
@@ -36,62 +49,62 @@ export function HomePage({ onNavigate }) {
 
   const stats = [
     {
-      title: 'Active Projects',
-      value: '24',
-      change: '+3 this month',
+      title: "Active Projects",
+      value: "24",
+      change: "+3 this month",
       icon: FolderKanban,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
-      title: 'Researchers',
-      value: '156',
-      change: '+8 new',
+      title: "Researchers",
+      value: "156",
+      change: "+8 new",
       icon: Users,
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
+      color: "text-green-600",
+      bgColor: "bg-green-50",
     },
     {
-      title: 'Publications',
-      value: '342',
-      change: '+12 this year',
+      title: "Publications",
+      value: "342",
+      change: "+12 this year",
       icon: BookOpen,
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
     },
     {
-      title: 'Patents',
-      value: '45',
-      change: '+4 this year',
+      title: "Patents",
+      value: "45",
+      change: "+4 this year",
       icon: FileCheck,
-      color: 'text-teal-600',
-      bgColor: 'bg-teal-50',
+      color: "text-teal-600",
+      bgColor: "bg-teal-50",
     },
     {
-      title: 'Total Funding',
-      value: '₹45.2M',
-      change: '+₹8.5M this year',
+      title: "Total Funding",
+      value: "₹45.2M",
+      change: "+₹8.5M this year",
       icon: DollarSign,
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
     },
   ];
 
   const recentProjects = mockProjects.slice(0, 5);
 
   const allNewsletters = [
-    'January 2025',
-    'February 2025',
-    'March 2025',
-    'April 2025',
-    'May 2025',
-    'June 2025',
-    'July 2025',
-    'August 2025',
-    'September 2025',
-    'October 2025',
-    'November 2025',
-    'December 2025',
+    "January 2025",
+    "February 2025",
+    "March 2025",
+    "April 2025",
+    "May 2025",
+    "June 2025",
+    "July 2025",
+    "August 2025",
+    "September 2025",
+    "October 2025",
+    "November 2025",
+    "December 2025",
   ];
 
   const handleNewsletterSelect = (newsletter) => {
@@ -101,22 +114,23 @@ export function HomePage({ onNavigate }) {
   };
 
   const handleNewsletterClick = (newsletter) => {
-    const pdfContent = `...`;
-    const blob = new Blob([pdfContent], { type: 'application/pdf' });
+    const pdfContent = `Newsletter: ${newsletter}`;
+    const blob = new Blob([pdfContent], { type: "application/pdf" });
     const url = URL.createObjectURL(blob);
-    window.open(url, '_blank');
+    window.open(url, "_blank");
     setTimeout(() => URL.revokeObjectURL(url), 100);
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#09015f' }}>
+    <div className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#09015f" }}>
       <div className="relative z-10 p-8">
+        {/* HERO + CAROUSEL */}
         <div className="mb-12 text-center">
           <h2 className="text-2xl font-semibold text-white mb-8 tracking-normal">
-            Welcome to the Research & Development Monitoring System
+            Welcome to the Research &amp; Development Monitoring System
           </h2>
 
-          <div className="max-w-5xl mx-auto rounded-2xl p-6" style={{ backgroundColor: '#dfe0db' }}>
+          <div className="max-w-5xl mx-auto rounded-2xl p-6" style={{ backgroundColor: "#dfe0db" }}>
             <div className="relative rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-[400px]">
                 {carouselImages.map((image, index) => (
@@ -125,7 +139,7 @@ export function HomePage({ onNavigate }) {
                     src={image}
                     alt={`Slide ${index + 1}`}
                     className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
-                      index === currentSlide ? 'opacity-100' : 'opacity-0'
+                      index === currentSlide ? "opacity-100" : "opacity-0"
                     }`}
                   />
                 ))}
@@ -153,9 +167,7 @@ export function HomePage({ onNavigate }) {
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all ${
-                      index === currentSlide
-                        ? 'bg-white w-8'
-                        : 'bg-white/50 hover:bg-white/75'
+                      index === currentSlide ? "bg-white w-8" : "bg-white/50 hover:bg-white/75"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -165,6 +177,7 @@ export function HomePage({ onNavigate }) {
           </div>
         </div>
 
+        {/* STATS CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
           {stats.map((stat) => {
             const Icon = stat.icon;
@@ -187,6 +200,7 @@ export function HomePage({ onNavigate }) {
           })}
         </div>
 
+        {/* RECENT PROJECTS + INSIGHTS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <Card className="bg-white">
             <CardHeader>
@@ -195,18 +209,21 @@ export function HomePage({ onNavigate }) {
             <CardContent>
               <div className="space-y-4">
                 {recentProjects.map((project) => (
-                  <div key={project.id} className="flex items-start gap-3 pb-4 border-b last:border-0">
+                  <div
+                    key={project.id}
+                    className="flex items-start gap-3 pb-4 border-b last:border-0"
+                  >
                     <div className="flex-1 min-w-0">
                       <p className="text-gray-900 truncate">{project.title}</p>
                       <p className="text-sm text-gray-500">{project.principalInvestigator}</p>
                       <div className="flex items-center gap-2 mt-2">
                         <span
                           className={`text-xs px-2 py-1 rounded-full ${
-                            project.status === 'Active'
-                              ? 'bg-green-100 text-green-700'
-                              : project.status === 'Completed'
-                              ? 'bg-blue-100 text-blue-700'
-                              : 'bg-yellow-100 text-yellow-700'
+                            project.status === "Active"
+                              ? "bg-green-100 text-green-700"
+                              : project.status === "Completed"
+                              ? "bg-blue-100 text-blue-700"
+                              : "bg-yellow-100 text-yellow-700"
                           }`}
                         >
                           {project.status}
@@ -274,6 +291,7 @@ export function HomePage({ onNavigate }) {
           </Card>
         </div>
 
+        {/* NEWSLETTERS */}
         <div className="mt-8">
           <div className="flex items-center gap-3 mb-6">
             <FileText className="w-8 h-8 text-white" />
@@ -288,11 +306,16 @@ export function HomePage({ onNavigate }) {
                 onClick={() => handleNewsletterClick(newsletter)}
               >
                 <CardHeader className="space-y-6 py-8">
-                  <div className="w-20 h-20 rounded-xl flex items-center justify-center mx-auto shadow-lg" style={{ backgroundColor: '#6366f1' }}>
+                  <div
+                    className="w-20 h-20 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                    style={{ backgroundColor: "#6366f1" }}
+                  >
                     <FileText className="w-9 h-9 text-white" strokeWidth={1.5} />
                   </div>
                   <CardTitle className="text-center font-semibold">{newsletter}</CardTitle>
-                  <CardDescription className="text-center text-xs text-gray-500 font-normal">Click to view PDF</CardDescription>
+                  <CardDescription className="text-center text-xs text-gray-500 font-normal">
+                    Click to view PDF
+                  </CardDescription>
                 </CardHeader>
               </Card>
             ))}
@@ -323,6 +346,7 @@ export function HomePage({ onNavigate }) {
           </div>
         </div>
 
+        {/* FOOTER */}
         <footer className="mt-12 bg-[#dfe0db] text-gray-900 py-8">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -341,10 +365,10 @@ export function HomePage({ onNavigate }) {
               <div>
                 <h3 className="mb-4">Departments</h3>
                 <ul className="space-y-2 text-sm text-gray-700">
-                  <li>Computer Science & Engineering</li>
-                  <li>Information Science & Engineering</li>
-                  <li>Electronics & Communication Engineering</li>
-                  <li>Electrical & Electronics Engineering</li>
+                  <li>Computer Science &amp; Engineering</li>
+                  <li>Information Science &amp; Engineering</li>
+                  <li>Electronics &amp; Communication Engineering</li>
+                  <li>Electrical &amp; Electronics Engineering</li>
                   <li>Mechanical Engineering</li>
                   <li>Civil Engineering</li>
                   <li>Master of Computer Applications</li>
@@ -371,7 +395,8 @@ export function HomePage({ onNavigate }) {
                   <p>+91-80-2608 2222</p>
                 </div>
               </div>
-<div>
+
+              <div>
                 <h3 className="mb-4">Quick Links</h3>
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li>Research &amp; Development Cell</li>
@@ -392,4 +417,3 @@ export function HomePage({ onNavigate }) {
     </div>
   );
 }
-

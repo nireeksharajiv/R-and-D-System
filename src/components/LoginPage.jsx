@@ -5,7 +5,9 @@ import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { FlaskConical } from 'lucide-react';
-//// import patternBg from '../assets/5e4bce84c445c6bc8bc3b833ca222cb14f633a86.png';
+//import patternBg from "../assets/image.png";
+
+
 
 export function LoginPage({ onLogin, onSwitchToSignup }) {
   const [email, setEmail] = useState('');
@@ -24,9 +26,9 @@ export function LoginPage({ onLogin, onSwitchToSignup }) {
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+            { <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
               <FlaskConical className="w-10 h-10 text-white" />
-            </div>
+            </div> }
           </div>
           <div>
             <CardTitle className="text-gray-900">R&D Monitoring System</CardTitle>
